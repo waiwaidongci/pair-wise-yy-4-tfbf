@@ -1,0 +1,12 @@
+{
+  "name": "dive-review-desk",
+  "version": "1.0.0",
+  "description": "水下考古潜水记录 · 潜次复核台",
+  "private": true,
+  "scripts": {
+    "test": "node test/archive.test.js && node test/dom.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

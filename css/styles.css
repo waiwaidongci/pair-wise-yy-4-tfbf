@@ -1,0 +1,75 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, "PingFang SC", sans-serif; background: #e8f2f3; color: #183035; }
+header { padding: 18px 24px; background: #fff; border-bottom: 1px solid #c9dadc; display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; }
+h1 { margin: 0; font-size: 26px; }
+h2 { font-size: 17px; margin: 14px 0 8px; }
+button { border: 0; border-radius: 8px; padding: 10px 13px; background: #1d6c78; color: #fff; font-weight: 800; cursor: pointer; }
+button:disabled { background: #9bb6ba; cursor: not-allowed; }
+button.secondary { background: #64777b; }
+input, select, textarea { width: 100%; border: 1px solid #c9dadc; border-radius: 6px; padding: 9px; font: inherit; background: #fff; }
+textarea { min-height: 64px; resize: vertical; }
+label { display: block; margin: 9px 0 5px; color: #5c7378; font-size: 13px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tabs { display: flex; gap: 4px; padding: 10px 16px 0; background: #e8f2f3; }
+.tab { background: transparent; color: #1d6c78; border: 1px solid #c9dadc; border-bottom: none; border-radius: 8px 8px 0 0; padding: 10px 18px; }
+.tab.active { background: #fff; color: #183035; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.app { display: grid; grid-template-columns: 1fr 360px; gap: 16px; padding: 16px; }
+.panel { background: #fff; border: 1px solid #c9dadc; border-radius: 8px; padding: 14px; }
+.map { position: relative; height: calc(100vh - 190px); min-height: 520px; overflow: hidden; background: radial-gradient(circle at 30% 20%, #5fa8b1, #0f5262 55%, #07333f); border-radius: 8px; border: 1px solid #0c4451; cursor: crosshair; }
+.wreck { position: absolute; left: 24%; top: 28%; width: 52%; height: 31%; border: 3px solid rgba(220,235,224,.55); border-radius: 48% 44% 42% 50%; transform: rotate(-9deg); }
+.rib { position: absolute; width: 2px; height: 36%; background: rgba(220,235,224,.35); top: 27%; transform: rotate(-9deg); }
+.marker { position: absolute; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 12px; font-weight: 800; transform: translate(-50%, -50%); border: 2px solid rgba(255,255,255,.7); box-shadow: 0 4px 12px rgba(0,0,0,.35); cursor: pointer; }
+.marker.selected { outline: 4px solid rgba(255,234,124,.75); }
+.ceramic { background: #b56c38; } .wood { background: #6c4b2f; } .metal { background: #6e7880; } .unknown { background: #725ca6; }
+.toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.list { display: grid; gap: 8px; max-height: 330px; overflow: auto; }
+.item { border: 1px solid #d7e4e5; border-radius: 8px; padding: 10px; cursor: pointer; }
+.item.active { border-color: #1d6c78; background: #eef8f9; }
+.timeline { display: grid; gap: 8px; max-height: 300px; overflow: auto; }
+.pill { display: inline-block; padding: 3px 8px; border: 1px solid #c9dadc; border-radius: 999px; font-size: 12px; margin-right: 4px; }
+.pill.ok { background: #e2f2e6; color: #1f6b34; border-color: #b7dcc1; }
+.pill.warn { background: #fdf3e0; color: #8a5a12; border-color: #f0d6a3; }
+.muted { color: #5c7378; font-size: 13px; }
+
+/* 复核台 */
+.review-wrap { padding: 16px; max-width: 1080px; margin: 0 auto; display: grid; gap: 14px; }
+.review-bar { display: flex; align-items: end; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.review-bar select { width: 200px; }
+.dive-grid { display: grid; gap: 14px; margin-top: 14px; }
+.dive-card { border: 1px solid #d7e4e5; border-left: 5px solid #c9a34a; border-radius: 8px; padding: 14px; background: #fcfdfe; }
+.dive-card.signed { border-left-color: #2e8b57; }
+.dive-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.dive-head h3 { margin: 0; font-size: 18px; }
+.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid; font-size: 12px; font-weight: 800; }
+.badge.ok { background: #e2f2e6; color: #1f6b34; border-color: #b7dcc1; }
+.badge.pending { background: #fdf3e0; color: #8a5a12; border-color: #f0d6a3; }
+.badge.warn { background: #fdeceb; color: #a23a32; border-color: #f3c2bd; }
+.mark-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+.mark-table th, .mark-table td { border-bottom: 1px solid #e3edee; padding: 6px 8px; text-align: left; }
+.mark-table th { color: #5c7378; font-weight: 600; background: #f4f8f8; }
+.miss { color: #b35a1f; font-weight: 800; }
+.lack-warning { margin-top: 10px; padding: 8px 10px; border-radius: 6px; background: #fdf3e0; color: #8a5a12; font-size: 13px; }
+.sign-box { margin-top: 12px; padding: 10px; border-radius: 8px; background: #f4f8f8; display: grid; grid-template-columns: 200px 1fr auto; gap: 8px; align-items: start; }
+.sign-box .full { grid-column: 1 / -1; }
+.signed-note { margin-top: 10px; padding: 8px 10px; border-radius: 6px; background: #e9f5ed; color: #1f6b34; font-size: 13px; display: grid; gap: 4px; }
+.history { margin-top: 12px; border-top: 1px dashed #c9dadc; padding-top: 10px; display: grid; gap: 6px; }
+.history-title { font-size: 13px; color: #5c7378; font-weight: 800; }
+.hist-event { font-size: 13px; padding: 7px 9px; border-radius: 6px; background: #f4f8f8; border-left: 3px solid #2e8b57; }
+.hist-event .when { color: #5c7378; }
+.hist-event.invalidated { border-left-color: #c0564c; background: #fdf3f2; }
+.hist-event.invalid-tag { margin-left: 6px; color: #a23a32; font-weight: 800; }
+.conflict-box { margin-top: 12px; border: 1px solid #f3c2bd; background: #fdf3f2; border-radius: 8px; padding: 10px 12px; }
+.conflict-box h3 { margin: 0 0 8px; font-size: 15px; color: #a23a32; }
+.conflict-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.conflict-table th, .conflict-table td { border-bottom: 1px solid #f3d7d4; padding: 5px 7px; text-align: left; vertical-align: top; }
+.empty { color: #5c7378; text-align: center; padding: 30px 0; }
+
+@media (max-width: 980px) {
+  .app { grid-template-columns: 1fr; }
+  .map { height: 520px; }
+  .sign-box { grid-template-columns: 1fr; }
+}
